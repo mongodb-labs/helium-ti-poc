@@ -10,6 +10,12 @@ trigger:
 steps:
 - name: publish
   image: plugins/kaniko-ecr
+  environment:
+    NPM_AUTH:
+      from_secret: NPM_AUTH
+    NPM_EMAIL:
+      from_secret: NPM_EMAIL
+    APP_ENV: staging
   settings:
     create_repository: true
     registry: 795250896452.dkr.ecr.us-east-1.amazonaws.com
@@ -21,6 +27,10 @@ steps:
       from_secret: ecr_access_key
     secret_key:
       from_secret: ecr_secret_key
+    build_args:
+        - NPM_AUTH
+        - NPM_EMAIL
+        - APP_ENV
   when:
     event:
     - push
