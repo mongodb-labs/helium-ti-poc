@@ -1,0 +1,6 @@
+env:
+  APP_ENV: staging
+
+envSecrets:
+  NPM_EMAIL: ofac-ti-ui-secrets
+  NPM_AUTH: ofac-ti-ui-secrets
