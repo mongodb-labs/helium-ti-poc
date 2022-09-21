@@ -13,11 +13,11 @@ RUN echo NPM_EMAIL
 
 RUN echo hello world
 
-echo $NPM_AUTH
-echo $NPM_EMAIL
+RUN echo $NPM_AUTH
+RUN echo $NPM_EMAIL
 
-echo $${NPM_AUTH}
-echo $${NPM_EMAIL}
+RUN echo $${NPM_AUTH}
+RUN echo $${NPM_EMAIL}
 
 RUN yarn install --frozen-lockfile
 
