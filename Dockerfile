@@ -8,17 +8,6 @@ ARG APP_ENV=$APP_ENV
 WORKDIR /ofac-ti-ui
 COPY package.json yarn.lock .npmrc ./
 
-RUN echo NPM_AUTH
-RUN echo NPM_EMAIL
-
-RUN echo hello world
-
-RUN echo $NPM_AUTH
-RUN echo $NPM_EMAIL
-
-RUN echo $${NPM_AUTH}
-RUN echo $${NPM_EMAIL}
-
 RUN yarn install --frozen-lockfile
 
 # Build
