@@ -40,5 +40,4 @@ resources:
 
 ingress:
   enabled: true
-  path: /academia
   hosts: ['ofac-ti-ui.devrel.staging.corp.mongodb.com']
