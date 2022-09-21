@@ -39,7 +39,7 @@ steps:
   - name: deploy-staging
     image: drone/cli:1.4.0-alpine
     commands:
-      - drone build promote mongodb/ofac-ti-ui ${DRONE_BUILD_NUMBER} staging
+      - drone build promote mongodb-labs/ofac-ti-ui ${DRONE_BUILD_NUMBER} staging
     environment:
       DRONE_SERVER: ${DRONE_SYSTEM_PROTO}://${DRONE_SYSTEM_HOST}
       DRONE_TOKEN:
