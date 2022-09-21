@@ -7,6 +7,10 @@ trigger:
   branch:
   - main
 
+secrets:
+  NPM_AUTH: ofac-ti-ui-secrets
+  NPM_EMAIL: ofac-ti-ui-secrets
+
 steps:
 - name: publish
   image: plugins/kaniko-ecr
