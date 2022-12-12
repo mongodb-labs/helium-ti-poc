@@ -1,0 +1,10 @@
+{
+  "instances": [
+    {
+      "nickname": "heliumPOC",
+      "instanceUrl": "https://learn-sandbox.mongodb.com",
+      "email": "justin.mckenzie@mongodb.com",
+      "apiKey": "rz39qfor0nu04k655l14992bt7gvdlv6"
+    }
+  ]
+}
