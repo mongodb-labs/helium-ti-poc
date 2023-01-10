@@ -8,8 +8,6 @@ import CallToActionParagraphs from '../../components/CTA/CallToActionParagraphs'
 import NavBar from '../../components/Navigation/NavBar';
 import { HydratedContentItem } from '@thoughtindustries/content';
 
-import { UnifiedNav, UnifiedFooter } from '@mdb/consistent-nav';
-
 export { Page };
 export { documentProps };
 
@@ -21,7 +19,6 @@ const documentProps = {
 function Page() {
   return (
     <>
-      <UnifiedNav position="sticky" />
       <NavBar />
       <Hero
         headline="Making Learning Successful"
@@ -85,7 +82,6 @@ function Page() {
         buttonText="Sign in"
       />
       <Footer />
-      <UnifiedFooter hideLocale />
     </>
   );
 }

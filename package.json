@@ -20,12 +20,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.4",
     "@cloudflare/kv-asset-handler": "^0.1.3",
-    "@emotion/css": "^11.10.5",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
     "@graphql-tools/graphql-tag-pluck": "^7.1.3",
-    "@mdb/consistent-nav": "^1.2.25",
-    "@mdb/flora": "^1.2.6",
     "@mdx-js/rollup": "^2.1.3",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@thoughtindustries/cart": "^1.1.3",
@@ -48,7 +43,6 @@
     "remark-frontmatter": "^4.0.1",
     "remark-mdx-frontmatter": "^2.0.3",
     "tailwindcss": "^3.0.9",
-    "theme-ui": "^0.15.4",
     "vite": "^2.5.2",
     "vite-plugin-ssr": "^0.3.59"
   },

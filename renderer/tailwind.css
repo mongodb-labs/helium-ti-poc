@@ -697,10 +697,6 @@ video {
   margin: 1.25rem;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -905,10 +901,6 @@ video {
   height: 2rem;
 }
 
-.h-1 {
-  height: 0.25rem;
-}
-
 .w-3\/4 {
   width: 75%;
 }
@@ -967,6 +959,10 @@ video {
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .min-w-\[175px\] {
@@ -1731,10 +1727,6 @@ video {
 
 .capitalize {
   text-transform: capitalize;
-}
-
-.italic {
-  font-style: italic;
 }
 
 .ordinal {
