@@ -1,6 +1,11 @@
-import React, { createContext, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../../components/Banner';
 import { gql, useQuery } from '@apollo/client';
+import Accordion from '../../components/Accordion/Accordion';
+import { UnifiedNav, UnifiedFooter } from '@mdb/consistent-nav';
+import { Button } from '@mdb/flora';
+import theme from '@mdb/flora/theme';
+import { ThemeProvider } from '@theme-ui/core';
 
 export { Page };
 export { documentProps };
@@ -11,7 +16,33 @@ const documentProps = {
 };
 
 function Page() {
-  const { data } = useQuery(
+  const [currentUser, setCurrentUser] = useState<any>('');
+
+  const { data: user } = useQuery(
+    gql`
+      query {
+        CurrentUser {
+          id
+          email
+          firstName
+          lastName
+          lastActiveAt
+          certificatesCount
+          availableCoursesCount
+          startedCoursesCount
+          completedCoursesCount
+        }
+      }
+    `
+  );
+
+  useEffect(() => {
+    setCurrentUser(user?.CurrentUser?.id);
+  }, [user]);
+
+  // TODO: Add query for UserCertificateFields 
+
+  const { data: catalog } = useQuery(
     gql`
       query {
         CatalogContent(page: 1) {
@@ -25,55 +56,76 @@ function Page() {
     `
   );
 
-  const courses = data?.CatalogContent.contentItems;
+  const courses = catalog?.CatalogContent?.contentItems;
+  // const currentUserID = user?.CurrentUser?.id;
+
+  const { data: userCourses } = useQuery(
+    gql`
+      query {
+        UserCourseCompletionProgress(id: "${currentUser}") {
+          type,
+          required,
+          completed,
+          percent
+        }
+      }
+    `
+  );
+
+  const { data: userCourseProgress } = useQuery(
+    gql`
+      query {
+        UserCourseProgress(id: "${currentUser}") {
+          totalViews,
+          totalTime,
+          percentComplete
+        }
+      }
+    `
+  );
+
+  const { data: userBadgeBoard } = useQuery(
+    gql`
+      query {
+        UserEarnedBadgeBoard {
+          earnedBadges {
+            id
+            deleted
+            user {
+              firstName
+              lastName
+            }
+            badge {
+              id
+              label
+            }
+          }
+          unearnedBadges {
+            id
+            awardType {
+              label
+            }
+            awardThreshold
+            asset
+            label
+          }
+        }
+      }
+    `
+  );
+
+  console.log('user', user);
+  console.log('currentUser local state', currentUser);
+  console.log('userCourseProgress', userCourseProgress);
+  console.log('userCourses', userCourses);
 
   return (
     <>
-      <div className="font-primary">
-        <Banner
-          heading="Available Courses"
-          subtext="Here is a list of all of your available courses"
-        />
-        <div
-          style={{
-            margin: '0 32px'
-          }}
-        >
-          <h2
-            style={{
-              fontSize: '40px',
-              marginBottom: '24px'
-            }}
-          >
-            Courses
-          </h2>
-          {courses?.length > 0 && courses.map(({ description, title, url }: any) => {
-            return (
-              <div
-                style={{
-                  padding: '12px',
-                  border: '1px solid black',
-                  margin: '24px 0',
-                }}
-              >
-                <h4 style={{ fontSize: '24px', marginBottom: '12px' }}>{title}</h4>
-                {description && <p>{description}</p>}
-                {url && (
-                  <a
-                    href={url}
-                    style={{
-                      fontSize: '12px',
-                      color: 'blue',
-                    }}
-                  >
-                    Go To Course
-                  </a>
-                )}
-              </div>
-            )
-          })}
-        </div>
-      </div>
+        <UnifiedNav position="sticky" />
+          <Button>
+            Flora Test Button!
+          </Button>
+      <UnifiedFooter hideLocale />
     </>
   );
 }
