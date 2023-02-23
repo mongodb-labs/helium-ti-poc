@@ -1,11 +1,15 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+
+// TODO on the above ... somewhere better to do this? Might be a pain to add in every file
+
 import React, { useEffect, useState } from 'react';
 import Banner from '../../components/Banner';
 import { gql, useQuery } from '@apollo/client';
 import Accordion from '../../components/Accordion/Accordion';
 import { UnifiedNav, UnifiedFooter } from '@mdb/consistent-nav';
-import { Button } from '@mdb/flora';
+import { Button, TypographyScale } from '@mdb/flora';
 import theme from '@mdb/flora/theme';
-import { ThemeProvider } from '@theme-ui/core';
 
 export { Page };
 export { documentProps };
@@ -114,6 +118,10 @@ function Page() {
     `
   );
 
+  function onTestClick() {
+    alert('It works!');
+  }
+
   console.log('user', user);
   console.log('currentUser local state', currentUser);
   console.log('userCourseProgress', userCourseProgress);
@@ -121,10 +129,20 @@ function Page() {
 
   return (
     <>
-        <UnifiedNav position="sticky" />
-          <Button>
-            Flora Test Button!
-          </Button>
+      <UnifiedNav position="sticky" />
+      <section sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 'inc110',
+        border: `1px solid ${theme.colors.black60}`,
+      }}>
+        <TypographyScale>
+          Hello World!
+        </TypographyScale>
+        <Button onClick={onTestClick}>
+          Flora Test Button!
+        </Button>
+      </section>
       <UnifiedFooter hideLocale />
     </>
   );
