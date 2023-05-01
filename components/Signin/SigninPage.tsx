@@ -22,7 +22,7 @@ const SigninPage = () => {
         window.location.href = '/learn/';
       })
       .catch(error => {
-        console.log('Handle Login Mutation Error Here');
+        console.log('Handle Login Mutation Error Here', error);
       });
   };
 
