@@ -10,3 +10,4 @@ dist
 *.local
 renderer/tailwind.css
 ti-config.json
+.npmrc
