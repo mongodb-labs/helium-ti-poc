@@ -57,7 +57,7 @@ function Page() {
         <UnifiedNav />
       </div>
       <section style={{ padding: '90px' }}>
-        <a target="_blank" href="https://learn-sandbox.mongodb.com/access/saml/login">Log in</a>
+        <a target="_blank" href="https://learn-sandbox.mongodb.com/access/saml/login?returnTo=http://localhost:3000">Log in</a>
         <TypographyScale variant='heading4'>This is a page built by Helium!!</TypographyScale>
         <TypographyScale variant='heading4' sx={{marginTop: '48px' }}>Full Course Catalog:</TypographyScale>
         <CatalogAndAggregation
