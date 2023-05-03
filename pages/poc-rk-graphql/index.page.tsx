@@ -2,12 +2,22 @@ import { gql, useQuery } from '@apollo/client';
 
 export function Page() {
 
+    /*
     const query = gql`
     query CurrentUserQuery {
         CurrentUser {
             firstName
             lastName
             email
+        }
+    }`;
+    */
+
+    const query = gql`
+    query CompanyDetailsQuery {
+        CompanyDetails {
+            name
+            subdomain
         }
     }`;
 
